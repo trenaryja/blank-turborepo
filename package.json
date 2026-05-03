@@ -1,0 +1,27 @@
+{
+	"name": "blank-turborepo",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"fix": "biome check --write .",
+		"check": "biome check .",
+		"get-latest": "bun update --latest --interactive",
+		"reinstall": "rm -rf node_modules bun.lock && bun install"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2",
+		"@types/node": "^25",
+		"turbo": "^2",
+		"typescript": "^6"
+	},
+	"trustedDependencies": [
+		"esbuild",
+		"unrs-resolver"
+	],
+	"packageManager": "bun@1.3.11"
+}
