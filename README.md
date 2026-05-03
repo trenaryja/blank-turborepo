@@ -20,25 +20,18 @@ blank-turborepo/
 
 ## Adding an app
 
-Drop a template in via degit, rename, install:
-
 ```sh
-# Next app
-bunx degit trenaryja/blank-next-app apps/web
-
-# Or a Vite SPA
-bunx degit trenaryja/blank-vite-app apps/web
-
-# Then in apps/web/package.json: rename to "@repo/web"
-# Optionally delete apps/web/biome.jsonc (root cascades)
-# Optionally rewrite apps/web/tsconfig.json to extend "@repo/config/tsconfig.base.json"
-
-bun install
+bun make:app next web   # Next.js app at apps/web
+bun make:app vite web   # or a Vite SPA
+bun install             # wire it into the workspace
 ```
+
+`make:app` clones the template, strips the inner `biome.jsonc` (root cascades), and renames the package to `@repo/<name>`. After install, optionally rewrite `apps/<name>/tsconfig.json` to `extends: "@repo/config/tsconfig.base.json"` if you want shared TS config.
 
 ## Scripts
 
 - `bun dev` — `turbo run dev` across all apps
 - `bun build` — `turbo run build`
 - `bun fix` — biome write
-- `bun check` — biome lint (extend with `&& turbo run check` once apps define one)
+- `bun check` — typecheck + biome (extend with `&& turbo run check` once apps define one)
+- `bun make:app <next|vite> <name>` — scaffold a new app under `apps/`
