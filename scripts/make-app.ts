@@ -17,6 +17,7 @@ if (!template || !name || !isTemplate(template)) {
 }
 
 const dest = `apps/${name}`
+
 if (existsSync(dest)) {
 	console.error(`${dest} already exists`)
 	process.exit(1)
@@ -31,7 +32,10 @@ const packageJson = await Bun.file(packagePath).json()
 packageJson.name = `@repo/${name}`
 await Bun.write(packagePath, `${JSON.stringify(packageJson, null, '\t')}\n`)
 
-const innerBiome = `${dest}/biome.jsonc`
-if (existsSync(innerBiome)) rmSync(innerBiome)
+// Root config cascades — the app keeps only its own tsconfig/prettier references
+for (const file of ['eslint.config.mjs', 'renovate.json', 'biome.jsonc']) {
+	const innerConfig = `${dest}/${file}`
+	if (existsSync(innerConfig)) rmSync(innerConfig)
+}
 
 console.log(`Created ${dest} from ${repo}. Run 'bun install' from the workspace root.`)

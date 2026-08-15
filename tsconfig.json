@@ -1,17 +1,5 @@
 {
-	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
-		"moduleResolution": "bundler",
-		"lib": ["esnext"],
-		"esModuleInterop": true,
-		"isolatedModules": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"noEmit": true,
-		"types": ["bun"]
-	},
+	"extends": "@trenaryja/config/tsconfig/base",
 	"include": ["scripts/**/*"],
 	"exclude": ["node_modules", "apps", "packages"]
 }

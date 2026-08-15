@@ -7,15 +7,14 @@ A minimal Turborepo template — `apps/` for deployables, `packages/` for shared
 - [Turborepo](https://turbo.build) (task orchestration + caching)
 - [Bun](https://bun.sh) (package manager + workspaces)
 - [TypeScript](https://www.typescriptlang.org)
-- [Biome](https://biomejs.dev) (lint + format, configured at root, cascades)
+- [`@trenaryja/config`](https://github.com/trenaryja/config) (ESLint + Prettier + shared tsconfig, configured at root, cascades)
 
 ## Layout
 
 ```
 blank-turborepo/
 ├── apps/                  # Deployables (Next, Vite, etc.) — empty by default
-└── packages/
-    └── config/            # Shared TS base config; extend via "@repo/config/tsconfig.base.json"
+└── packages/              # Shared code — empty by default
 ```
 
 ## Adding an app
@@ -26,12 +25,12 @@ bun make:app vite web   # or a Vite SPA
 bun install             # wire it into the workspace
 ```
 
-`make:app` clones the template, strips the inner `biome.jsonc` (root cascades), and renames the package to `@repo/<name>`. After install, optionally rewrite `apps/<name>/tsconfig.json` to `extends: "@repo/config/tsconfig.base.json"` if you want shared TS config.
+`make:app` clones the template, strips the inner lint configs (root cascades), and renames the package to `@repo/<name>`.
 
 ## Scripts
 
 - `bun dev` — `turbo run dev` across all apps
 - `bun build` — `turbo run build`
-- `bun fix` — biome write
-- `bun check` — typecheck + biome (extend with `&& turbo run check` once apps define one)
+- `bun fix` — prettier + eslint write
+- `bun check` — typecheck + prettier + eslint (extend with `&& turbo run check` once apps define one)
 - `bun make:app <next|vite> <name>` — scaffold a new app under `apps/`
