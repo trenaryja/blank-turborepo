@@ -9,13 +9,13 @@
 		"build": "turbo run build",
 		"dev": "turbo run dev",
 		"fix": "prettier -w . && eslint --fix .",
-		"check": "tsc && prettier -c . && eslint .",
+		"check": "tsc && prettier -c . && eslint . --max-warnings=0",
 		"make:app": "bun scripts/make-app.ts",
 		"get-latest": "bun update --latest --interactive",
 		"reinstall": "rm -rf node_modules bun.lock && bun install"
 	},
 	"devDependencies": {
-		"@trenaryja/config": "^0.0.1",
+		"@trenaryja/config": "^0.0.3",
 		"turbo": "^2.10.10"
 	},
 	"prettier": "@trenaryja/config/prettier",

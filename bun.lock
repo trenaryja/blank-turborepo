@@ -5,7 +5,7 @@
     "": {
       "name": "blank-turborepo",
       "devDependencies": {
-        "@trenaryja/config": "^0.0.1",
+        "@trenaryja/config": "^0.0.3",
         "turbo": "^2.10.10",
       },
     },
@@ -267,7 +267,7 @@
 
     "@testing-library/user-event": ["@testing-library/user-event@14.6.4", "", { "peerDependencies": { "@testing-library/dom": ">=7.21.4" } }, "sha512-QCGwP6QrjypBLwyj5cuyfVamkaIEy/XGY+1VDehbtbQqOggYmTFpFOdWR5mPz14vX8vXLMVjDHlRNBcClyO9ew=="],
 
-    "@trenaryja/config": ["@trenaryja/config@0.0.1", "", { "dependencies": { "@fullstacksjs/eslint-config": "^15.0.1", "@types/bun": "^1.3.14", "@typescript/native": "npm:typescript@^7.0.2", "eslint": "^10.8.1", "eslint-plugin-react-hooks": "^7.1.1", "local-pkg": "^1.2.1", "prettier": "^3.9.6", "typescript": "^6.0.3" } }, "sha512-xlQZILMRG/UpKLNGoG+M1M/SvQ83D17lenO1p/NcF2PluSwIG5klSP+wdqJQeS7wDyRc3LTF51BZNJWOoeKV9Q=="],
+    "@trenaryja/config": ["@trenaryja/config@0.0.3", "", { "dependencies": { "@fullstacksjs/eslint-config": "^15.0.1", "@types/bun": "^1.3.14", "@typescript/native": "npm:typescript@^7.0.2", "eslint": "^10.8.1", "eslint-plugin-react-hooks": "^7.1.1", "prettier": "^3.9.6", "typescript": "^6.0.3" } }, "sha512-eFrJc+dudMV7BeTLlU12ZAoqNOiwHlt66dlxjOUN2gyL4ivdlqywu+JpdSfhoT4/dJG/fwPgc/wdmXwApYqt+A=="],
 
     "@turbo/darwin-64": ["@turbo/darwin-64@2.10.10", "", { "os": "darwin", "cpu": "x64" }, "sha512-gFDD+wRP5hWxBRghGyEbjpbLOY7aIU/wvsnKdMM7odQcp/wHMrnI83p0FyxxMRZnFH9ZD+S59MvcpOC5b+nrCA=="],
 
