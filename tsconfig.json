@@ -1,5 +1,5 @@
 {
 	"extends": "@trenaryja/config/tsconfig/base",
-	"include": ["scripts/**/*"],
+	"include": ["**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules", "apps", "packages"]
 }

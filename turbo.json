@@ -10,8 +10,7 @@
 			"cache": false,
 			"persistent": true
 		},
-		"check": {
-			"dependsOn": ["^check"]
-		}
+		"check": {},
+		"fix": {}
 	}
 }

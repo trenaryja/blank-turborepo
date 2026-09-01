@@ -8,14 +8,14 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"fix": "prettier -w . && bunx eslint --fix .",
-		"check": "tsc && prettier -c . && bunx eslint . --max-warnings=0",
+		"fix": "prettier -w . && bunx eslint --fix . --ignore-pattern apps --ignore-pattern packages && turbo run fix",
+		"check": "tsc && prettier -c . && bunx eslint . --max-warnings=0 --ignore-pattern apps --ignore-pattern packages && turbo run check",
 		"make:app": "bun scripts/make-app.ts",
 		"get-latest": "bun update --latest --interactive",
 		"reinstall": "rm -rf node_modules bun.lock && bun install"
 	},
 	"devDependencies": {
-		"@trenaryja/config": "^0.0.3",
+		"@trenaryja/config": "^0.0.4",
 		"turbo": "^2.10.12"
 	},
 	"prettier": "@trenaryja/config/prettier",
@@ -23,5 +23,10 @@
 		"esbuild",
 		"unrs-resolver"
 	],
-	"packageManager": "bun@1.3.11"
+	"devEngines": {
+		"packageManager": {
+			"name": "bun",
+			"version": "^1.0.0"
+		}
+	}
 }
