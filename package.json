@@ -15,8 +15,8 @@
 		"reinstall": "rm -rf node_modules bun.lock && bun install"
 	},
 	"devDependencies": {
-		"@trenaryja/config": "^0.0.4",
-		"turbo": "^2.10.12"
+		"@trenaryja/config": "^0.0.8",
+		"turbo": "^2.11.3"
 	},
 	"prettier": "@trenaryja/config/prettier",
 	"trustedDependencies": [

@@ -1,5 +1,1 @@
-{
-	"extends": "@trenaryja/config/tsconfig/base",
-	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules", "apps", "packages"]
-}
+{ "extends": "@trenaryja/config/tsconfig/workspace" }
