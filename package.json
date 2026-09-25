@@ -8,8 +8,8 @@
 	"scripts": {
 		"build": "turbo run build",
 		"dev": "turbo run dev",
-		"fix": "prettier -w . && bunx eslint --fix . --ignore-pattern apps --ignore-pattern packages && turbo run fix",
-		"check": "tsc && prettier -c . && bunx eslint . --max-warnings=0 --ignore-pattern apps --ignore-pattern packages && turbo run check",
+		"fix": "prettier -w . '!apps' '!packages' && bunx eslint --fix . --ignore-pattern apps --ignore-pattern packages && turbo run fix",
+		"check": "tsc && prettier -c . '!apps' '!packages' && bunx eslint . --max-warnings=0 --ignore-pattern apps --ignore-pattern packages && turbo run check",
 		"make:app": "bun scripts/make-app.ts",
 		"get-latest": "bun update --latest --interactive",
 		"reinstall": "rm -rf node_modules bun.lock && bun install"
