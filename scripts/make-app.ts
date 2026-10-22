@@ -1,5 +1,5 @@
-import { existsSync, rmSync } from 'node:fs'
 import { $ } from 'bun'
+import { existsSync, rmSync } from 'node:fs'
 import { z } from 'zod'
 
 const TEMPLATES = {
@@ -33,8 +33,8 @@ const packageJson = z.looseObject({}).safeParse(await Bun.file(packagePath).json
 if (!packageJson.success) throw new Error(`${packagePath}: ${z.prettifyError(packageJson.error)}`)
 await Bun.write(packagePath, `${JSON.stringify({ ...packageJson.data, name: `@repo/${name}` }, null, '\t')}\n`)
 
-// Root config cascades — the app keeps only its own tsconfig/prettier references
-for (const file of ['eslint.config.mjs', 'renovate.json']) {
+// the workspace root owns lint, renovate and the lockfile; the app keeps its own tsconfig and prettier key
+for (const file of ['eslint.config.mjs', 'renovate.json', 'bun.lock']) {
 	const innerConfig = `${dest}/${file}`
 	if (existsSync(innerConfig)) rmSync(innerConfig)
 }

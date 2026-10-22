@@ -25,7 +25,7 @@ bun make:app vite web   # or a Vite SPA
 bun install             # wire it into the workspace
 ```
 
-`make:app` clones the template, strips the inner lint configs (root cascades), and renames the package to `@repo/<name>`.
+`make:app` clones the template, strips the inner lint config, renovate config and lockfile (the root owns them), and renames the package to `@repo/<name>`.
 
 ## Scripts
 
