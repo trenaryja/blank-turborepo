@@ -17,7 +17,7 @@
 	"prettier": "@trenaryja/config/prettier",
 	"devDependencies": {
 		"@trenaryja/config": "^0.2.0",
-		"turbo": "^2.11.3",
+		"turbo": "^2.11.10",
 		"zod": "^4.6.7"
 	},
 	"devEngines": {
