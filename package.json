@@ -7,27 +7,27 @@
 	],
 	"scripts": {
 		"build": "turbo run build",
+		"chk": "bun check && bun fmt --check . '!apps' '!packages' && eslint . --max-warnings=0 --ignore-pattern apps --ignore-pattern packages && turbo run chk",
 		"dev": "turbo run dev",
-		"fix": "prettier -w . '!apps' '!packages' && bunx eslint --fix . --ignore-pattern apps --ignore-pattern packages && turbo run fix",
-		"check": "tsc && prettier -c . '!apps' '!packages' && bunx eslint . --max-warnings=0 --ignore-pattern apps --ignore-pattern packages && turbo run check",
-		"make:app": "bun scripts/make-app.ts",
+		"fix": "bun fmt . '!apps' '!packages' && eslint --fix . --ignore-pattern apps --ignore-pattern packages && turbo run fix",
 		"get-latest": "bun update --latest --interactive",
+		"make:app": "bun scripts/make-app.ts",
 		"reinstall": "rm -rf node_modules bun.lock && bun install"
 	},
+	"prettier": "@trenaryja/config/prettier",
 	"devDependencies": {
-		"@trenaryja/config": "^0.0.8",
+		"@trenaryja/config": "^0.2.0",
 		"turbo": "^2.11.3",
 		"zod": "^4.6.7"
 	},
-	"prettier": "@trenaryja/config/prettier",
-	"trustedDependencies": [
-		"esbuild",
-		"unrs-resolver"
-	],
 	"devEngines": {
 		"packageManager": {
 			"name": "bun",
 			"version": "^1.0.0"
 		}
-	}
+	},
+	"trustedDependencies": [
+		"esbuild",
+		"unrs-resolver"
+	]
 }

@@ -30,7 +30,7 @@ bun install             # wire it into the workspace
 ## Scripts
 
 - `bun dev` — `turbo run dev` across all apps
-- `bun build` — `turbo run build`
-- `bun fix` — prettier + eslint write
-- `bun check` — typecheck + prettier + eslint (extend with `&& turbo run check` once apps define one)
+- `bun run build` — `turbo run build` (`bun build` is Bun's bundler)
+- `bun fix` — format + eslint write, root then each app via turbo
+- `bun chk` — typecheck + format check + eslint, root then each app via turbo
 - `bun make:app <next|vite> <name>` — scaffold a new app under `apps/`
